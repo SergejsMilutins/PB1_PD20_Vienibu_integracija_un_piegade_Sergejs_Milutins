@@ -4,12 +4,15 @@ on:
   push:
     branches:
       - main
-      - master
 
 jobs:
   test:
     name: Test stage
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: pielikumi/projekts
 
     steps:
       - name: Checkout repository
@@ -39,4 +42,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t pb1-app:v1.0.0 .
+          docker build -t pb1-app:v1.0.0 ./pielikumi/projekts
