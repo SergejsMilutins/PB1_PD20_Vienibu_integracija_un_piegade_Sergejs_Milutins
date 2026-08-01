@@ -1,10 +1,18 @@
-from app import add
+import sys
+import os
 
-def test_add_1():
-    assert add(2, 3) == 5
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-def test_add_2():
-    assert add(0, 0) == 0
+from app import saskaitit
 
-def test_add_3():
-    assert add(-1, 1) == 0
+
+def test_add():
+    assert saskaitit(2, 3) == 5
+
+
+def test_add_zero():
+    assert saskaitit(0, 5) == 5
+
+
+def test_add_negative():
+    assert saskaitit(-2, -3) == -5
